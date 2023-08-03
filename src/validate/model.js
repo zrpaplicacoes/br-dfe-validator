@@ -48,7 +48,6 @@ export const getModelName = (model) => {
 };
 
 export const isSupportedModel = (model) => {
-  console.log('here we got', model, typeof model, String(model), typeof String(model));
   return ['65', '55', '59'].includes(String(model));
 };
 
