@@ -1,6 +1,6 @@
 {
   "name": "@zrpaplicacoes/br-dfe-validator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A small and simple library to validate and work with DFE's in Brazil",
   "main": "index.js",
   "keywords": [
