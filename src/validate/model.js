@@ -30,7 +30,7 @@ export const modelTable = {
   '29': 'Nota Fiscal/Conta De Fornecimento D\'água Canalizada',
   '55': 'Nota Fiscal Eletrônica - NF-e',
   '57': 'Conhecimento de Transporte Eletrônico - CT-e',
-  '58': 'Cupom Fiscal Eletrônico CF-e-SAT',
+  '58': 'Manifesto Eletrônico de Documentos fiscais (MDF-e)',
   '59': 'Cupom Fiscal Eletrônico - CF-e',
   '60': 'Cupom Fiscal Eletrônico CF-e-ECF',
   '65': 'Nota Fiscal Eletrônica para Consumidor Final',
@@ -48,11 +48,12 @@ export const getModelName = (model) => {
 };
 
 export const isSupportedModel = (model) => {
-  return ['65', '55', '59'].includes(String(model));
+  return ['65', '55', '59', '57', '58'].includes(String(model));
 };
 
-export const isNfeNfce = (model) => {
-  return ['55', '65'].includes(String(model));
+export const isCommonFormat = (model) => {
+  // nfe, nfce, cte, mdfe
+  return ['55', '65', '57', '58'].includes(String(model));
 }
 
 export const isCfe = (model) => {

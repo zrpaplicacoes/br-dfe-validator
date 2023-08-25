@@ -1,6 +1,6 @@
 {
   "name": "@zrpaplicacoes/br-dfe-validator",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A small and simple library to validate and work with DFE's in Brazil",
   "main": "index.js",
   "keywords": [
@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "babel src -d dist"
+    "build": "babel src -d dist",
+    "deploy": "npm run build && npm run publish"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@babel/preset-env": "^7.22.10",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "git-cz": "^4.9.0"

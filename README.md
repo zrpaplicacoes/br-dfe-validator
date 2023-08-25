@@ -86,23 +86,30 @@ validateAccessKey('42100484684182000157550010000000020108042108', {
 
 As chaves de acesso são únicas para cada documento, mas todas seguem um padrão. O valor semântico dos campos é diferente para cada tipo de documento, mas a sua distribuição ao longo dos 44 caracteres é quase sempre a mesma.
 
-| Campo | NFC-e | NF-e | CF-e |
-| --- | --- | --- | --- |
-| Modelo | 65 | 55 | 59 |
-| UF | ✔️ | ✔️ | ✔️ |
-| AAMM | ✔️ | ✔️ | ✔️ |
-| CNPJ | ✔️ | ✔️ | ✔️ |
-| Série | 3 dígitos | 3 dígitos | 9 dígitos |
-| Número | 9 dígitos | 9 dígitos | 6 dígitos |
-| Tipo | ✔️ | ✔️ | ✖️ |
-| Código | ✔️ | ✔️ | ✖️ |
-| Código numérico aleatório | ✖️ | ✖️ | ✔️ |
-| DV | ✔️ | ✔️ | ✔️ |
-
+| Campo | NFC-e | NF-e | CF-e | CT-e | MDF-e |
+| --- | --- | --- | --- | --- | --- |
+| Modelo | 65 | 55 | 59 | 57 | 58 |
+| UF | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| AAMM | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CNPJ | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| Série | 3 dígitos | 3 dígitos | 9 dígitos | 3 dígitos | 3 dígitos |
+| Número | 9 dígitos | 9 dígitos | 6 dígitos | 9 dígitos | 9 dígitos |
+| Tipo | ✔️ | ✔️ | ✖️ | ✔️ | ✔️ |
+| Código | ✔️ | ✔️ | ✖️ | ✔️ | ✔️ |
+| Código numérico aleatório | ✖️ | ✖️ | ✔️ | ✖️ | ✖️ |
+| DV | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 ## Validações de outros tipos de DFE's
 
-Por enquanto essa biblioteca aceita e suporta `Cupom Fiscal Eletrônico - CF-e`, `Nota Fiscal Eletrônica - NF-e` e `Nota Fiscal Eletrônica para Consumidor Final`. Apesar do layout de todos os DFes ser o mesmo, o valor semântico de cada campo é importante para a validação da chave.
+Por enquanto essa biblioteca aceita e suporta:
+
+- `Cupom Fiscal Eletrônico - CF-e`
+- `Nota Fiscal Eletrônica - NF-e`
+- `Nota Fiscal Eletrônica para Consumidor Final`
+- `Conhecimento de Transporte Eletrônico - CT-e`
+- `Manifesto Eletrônico de Documentos fiscais (MDF-e)`
+
+Apesar do layout de todos os DFes ser o mesmo, o valor semântico de cada campo é importante para a validação da chave.
 **Por exemplo:** em uma NFe o campo **tpEmis** assume valores entre 1 e 5, porém em um CTe os valores 7 e 8 são válidos, e possuem significados diferentes.
 
 Visto que existem vários tipos de DFe, com vários valores semânticos diferentes, a implementação da validação completa de todos os DFes se dará pela demanda de tal validação. Caso queira a validação de um DFe específico, faça uma contribuição ou abra uma Issue.
