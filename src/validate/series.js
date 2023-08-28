@@ -7,7 +7,7 @@ export default (series, model = '55') => {
 
   const stringSeries = String(series);
 
-  if (validate.check.isNfeNfce(model) && stringSeries.length !== 3) {
+  if (validate.check.isCommonFormat(model) && stringSeries.length !== 3) {
     return false;
   } else if (validate.check.isCfe(model) && stringSeries.length !== 9) {
     return false;

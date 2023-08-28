@@ -35,6 +35,10 @@ describe('DV', () => {
     it('should validate invalid access key cfe/sat', () => {
       expect(validateDV('35230710558041000556590013069980188869528732')).toBe(false);
     });
+
+    it('should validate invalid access key cte', () => {
+      expect(validateDV('35170705248891000181570010000011831339972123')).toBe(false);
+    });
   });
 
   describe('Valid', () => {
@@ -81,6 +85,28 @@ describe('DV', () => {
       ]
     )('should validate cfe/sat', (cfe) => {
       expect(validateDV(cfe)).toBe(true);
+    });
+
+    it.each(
+      [
+        '41230731590673000172570010000890191009245813',
+        '41230631590673000172570010000885691528020309',
+        '41230531590673000172570010000853761420604071',
+        '41230631590673000172570010000861601107564187',
+        '35230531590673001225570010000027271997654698',
+        '35230176302157001296570020002101711023775517'
+      ]
+    )('should validate cte', (cte) => {
+      expect(validateDV(cte)).toBe(true);
+    });
+
+    it.each(
+      [
+        '35230828620123000144580010000000351240510151',
+        '42230782918939000102580010000053661000258211',
+      ]
+    )('should validate mdfe', (mdfe) => {
+      expect(validateDV(mdfe)).toBe(true);
     });
   });
 });

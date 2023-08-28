@@ -19,13 +19,13 @@ export default (accessKey, options = {}) => {
   const model = unmaskedAccessKey.slice(20, 22);
 
   if (!validate.check.isSupportedModel(model)) {
-    console.error(`Unsupported DFE, must be NFCE/NFE/CFE. Received model: ${model}`);
+    console.error(`Unsupported DFE, must be NFCE/NFE/CFE/CT-e/MDF-e. Received model: ${model}`);
     return false;
   }
 
   let series, number, dv, type, code, numericRandom;
 
-  if (validate.check.isNfeNfce(model)) {
+  if (validate.check.isCommonFormat(model)) {
     series = unmaskedAccessKey.slice(22, 25);
     number = unmaskedAccessKey.slice(25, 34);
     type = unmaskedAccessKey.slice(34, 35);
@@ -67,15 +67,15 @@ export default (accessKey, options = {}) => {
       value: number,
     },
     type: {
-      isValid: validate.check.isNfeNfce(model) ? validate.type(type, model) : true,
+      isValid: validate.check.isCommonFormat(model) ? validate.type(type, model) : true,
       value: type,
     },
     code: {
-      isValid: validate.check.isNfeNfce(model) ? validate.code(code) : true,
+      isValid: validate.check.isCommonFormat(model) ? validate.code(code) : true,
       value: code,
     },
     numericRandom: {
-      isValid: validate.check.isNfeNfce(model) ? true : validate.number(numericRandom, model),
+      isValid: validate.check.isCommonFormat(model) ? true : validate.number(numericRandom, model),
       value: numericRandom,
     },
     dv: {
