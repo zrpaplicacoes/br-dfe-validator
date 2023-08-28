@@ -99,5 +99,14 @@ describe('DV', () => {
     )('should validate cte', (cte) => {
       expect(validateDV(cte)).toBe(true);
     });
+
+    it.each(
+      [
+        '35230828620123000144580010000000351240510151',
+        '42230782918939000102580010000053661000258211',
+      ]
+    )('should validate mdfe', (mdfe) => {
+      expect(validateDV(mdfe)).toBe(true);
+    });
   });
 });
