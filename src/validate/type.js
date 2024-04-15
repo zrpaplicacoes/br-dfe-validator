@@ -7,7 +7,7 @@ export default (type, model = '55') => {
 
   if (stringType.length !== 1) {
     return false;
-  } else if (model === '55' && (Number(stringType) < 1 || Number(stringType) > 5)) {
+  } else if (model === '55' && (Number(stringType) < 1 || Number(stringType) > 7)) {
     return false;
   }
 
