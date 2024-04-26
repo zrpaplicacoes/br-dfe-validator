@@ -35,5 +35,9 @@ describe('Type', () => {
       expect(validateType(4)).toBe(true);
       expect(validateType(5)).toBe(true);
     });
+
+    it('should allow nfe in entrance mode', () => {
+      expect(validateType(0)).toBe(true);
+    });
   });
 });
