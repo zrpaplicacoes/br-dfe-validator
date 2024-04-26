@@ -16,7 +16,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel src -d dist",
-    "deploy": "npm run build && npm run publish"
+    "deploy": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
